@@ -100,10 +100,10 @@ public class Chatbox implements Initializable{
 * 
 */
 	
-    public static void buttonClick(ActionEvent e,String msg, VBox VBOX,ScrollPane chatScroll) {
+    public static void buttonClick(ActionEvent e,String userMessage, VBox chatDisplayBox,ScrollPane chatScroll) {
     	
     	//checking whether the user has entered any message or not
-    	if(msg != null)
+    	if(userMessage != null)
     	{
     	
     	/***	
@@ -148,7 +148,7 @@ public class Chatbox implements Initializable{
     		//Setting the chat scroll pane width
         	chatScroll.setFitToWidth(true); 
         	//Creating a label to store the message entered by the user
-        	Label sendMessageLabel=new Label(msg);
+        	Label sendMessageLabel=new Label(userMessage);
         	//Adding styling to the label 
         	sendMessageLabel.setStyle(" -fx-font: 14pt 'Corbel'; -fx-text-fill: black; -fx-background-color: orange;-fx-border-color: black;-fx-background-radius: 10; -fx-border-radius: 10 10 10 10");
         	//Making sure that the label created is wrapped around the text inside
@@ -162,15 +162,15 @@ public class Chatbox implements Initializable{
             //Aligning the position of the HBox
             sendMessagehBox.setAlignment(Pos.BASELINE_RIGHT);
             //Adding the HBox to the chat display box    
-            VBOX.getChildren().add(sendMessagehBox);
+            chatDisplayBox.getChildren().add(sendMessagehBox);
             //setting spacing between each element in the chat display box
-            VBOX.setSpacing(10);
+            chatDisplayBox.setSpacing(10);
             //Making sure that the scroll bar is always at the bottom     
             chatScroll.setVvalue(1);
             //Creating a JSON object to send the message to the content module
             JSONObject sendMessageObject=new JSONObject(); 
             //Assigning the entered message as value to the key : "message"
-            sendMessageObject.put("message",msg);   
+            sendMessageObject.put("message",userMessage);   
             //Converting the JSON object to JSON string
             String message=sendMessageObject.toString();
             //Sending the message to the content module
