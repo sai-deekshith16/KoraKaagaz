@@ -171,28 +171,27 @@ public class ContentNotificationHandler implements IContentNotificationHandler {
 	public void onUserExit (String username) {
 		
 		//Creating a JSON Object
-				JSONObject obj = new JSONObject(username);
-				//Obtaining the username string
-				String userName = obj.getString("username");
-				//new user joined alert.
-				Alert alert = new Alert(AlertType.CONFIRMATION, "The user" + userName +  "left the canvas! ", ButtonType.OK);
-				//Displaying the alert
-				alert.show();
-				//Creating a new thread to display the alert for some seconds and dismiss
-		        new Thread(new Runnable() {
-		            @Override
-		            public void run() {
-		                try {
-		                    Thread.sleep(1000);  // seconds * 100
+		JSONObject obj = new JSONObject(username);
+		//Obtaining the username string
+		String userName = obj.getString("username");
+		//new user joined alert.
+		Alert alert = new Alert(AlertType.CONFIRMATION, "The user" + userName +  "left the canvas! ", ButtonType.OK);
+		//Displaying the alert
+		alert.show();
+		//Creating a new thread to display the alert for some seconds and dismiss
+		new Thread(new Runnable() {
+		    @Override
+		    public void run() {
+		            try {
+		                Thread.sleep(1000);  // seconds * 100
 		                } catch (InterruptedException e) {
-		                    if (alert.isShowing())
-		                    {
-		                    	 alert.close();
-		                    }
-		                    e.printStackTrace();
-		                    //log message
-		                    logger.log(ModuleID.UI, LogLevel.ERROR, e.toString());
-		                    
+		                if (alert.isShowing())
+		                {
+		                     alert.close();
+		                }
+		                e.printStackTrace();
+		                 //log message
+		                logger.log(ModuleID.UI, LogLevel.ERROR, e.toString());      
 
 		                }finally {
 		                    if (alert.isShowing())
