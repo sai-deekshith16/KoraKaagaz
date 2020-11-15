@@ -101,8 +101,8 @@ public class ContentNotificationHandler implements IContentNotificationHandler {
 		//Creating the CanvasController object
 		CanvasController canvas = new CanvasController();
 		//Getting the chatDisplayBox and the chatScroll pane from the controller
-		VBox chatDisplayBox = canvas.getchatDisplayBox();
-		ScrollPane chatScroll = canvas.getchatScroll();
+		VBox chatDisplayBox = canvas.getChatDisplayBox();
+		ScrollPane chatScroll = canvas.getChatScroll();
 		//Creating a JSON Object to store the message details
 		JSONObject obj = new JSONObject(messageDetails);
 		//Getting the username from messageDetails string
