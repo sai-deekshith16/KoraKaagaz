@@ -118,20 +118,20 @@ public class Chatbox implements Initializable{
             view.setFitWidth(25);
             view.setPreserveRatio(true);
             view.setStyle("-fx-border-color: black;-fx-background-radius: 10; -fx-border-radius: 10 10 10 10");
-    		chatScroll.setFitToWidth(true);
-        	Label userNameDisplay = new Label("Madhav");
-        	userNameDisplay.setStyle(" -fx-font: 10pt 'Corbel';-fx-font-weight: bold; -fx-text-fill: black; -fx-background-color: orange;-fx-border-color: black;-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0");
-    		Label msgLabel=new Label(msg);
+    	    chatScroll.setFitToWidth(true);
+            Label userNameDisplay = new Label("Madhav");
+            userNameDisplay.setStyle(" -fx-font: 10pt 'Corbel';-fx-font-weight: bold; -fx-text-fill: black; -fx-background-color: orange;-fx-border-color: black;-fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0");
+    	    Label msgLabel=new Label(msg);
     		
-    		msgLabel.setStyle(" -fx-font: 14pt 'Corbel'; -fx-text-fill: black; -fx-background-color: orange;-fx-border-color: black;-fx-background-radius: 0 10 10 10; -fx-border-radius: 0 10 10 10");
+    	    msgLabel.setStyle(" -fx-font: 14pt 'Corbel'; -fx-text-fill: black; -fx-background-color: orange;-fx-border-color: black;-fx-background-radius: 0 10 10 10; -fx-border-radius: 0 10 10 10");
     		
-    		//msgLabel.getStylesheets().add("sample/styles/send.css");
-    		msgLabel.setId("receive");
-    		msgLabel.setWrapText(true);
-    		msgLabel.setTextAlignment(TextAlignment.JUSTIFY);
-    		//label.setMaxWidth(200);
-    		VBox vBox = new VBox();
-    		vBox.getChildren().addAll(userNameDisplay,msgLabel);
+    	    //msgLabel.getStylesheets().add("sample/styles/send.css");
+    	    msgLabel.setId("receive");
+    	    msgLabel.setWrapText(true);
+    	    msgLabel.setTextAlignment(TextAlignment.JUSTIFY);
+    	    //label.setMaxWidth(200);
+    	    VBox vBox = new VBox();
+    	    vBox.getChildren().addAll(userNameDisplay,msgLabel);
             HBox hBox=new HBox();
             hBox.setSpacing(10);;
             hBox.getChildren().addAll(view,vBox);
@@ -145,17 +145,17 @@ public class Chatbox implements Initializable{
             
             ***/
     				
-    		//Setting the chat scroll pane width
-        	chatScroll.setFitToWidth(true); 
-        	//Creating a label to store the message entered by the user
-        	Label sendMessageLabel=new Label(userMessage);
-        	//Adding styling to the label 
-        	sendMessageLabel.setStyle(" -fx-font: 14pt 'Corbel'; -fx-text-fill: black; -fx-background-color: orange;-fx-border-color: black;-fx-background-radius: 10; -fx-border-radius: 10 10 10 10");
-        	//Making sure that the label created is wrapped around the text inside
-        	sendMessageLabel.setWrapText(true);
-        	//Setting the alignment of the message label
-        	sendMessageLabel.setTextAlignment(TextAlignment.JUSTIFY);
-        	//creating a HBox to store the label
+    	    //Setting the chat scroll pane width
+            chatScroll.setFitToWidth(true); 
+            //Creating a label to store the message entered by the user
+            Label sendMessageLabel=new Label(userMessage);
+            //Adding styling to the label 
+            sendMessageLabel.setStyle(" -fx-font: 14pt 'Corbel'; -fx-text-fill: black; -fx-background-color: orange;-fx-border-color: black;-fx-background-radius: 10; -fx-border-radius: 10 10 10 10");
+            //Making sure that the label created is wrapped around the text inside
+            sendMessageLabel.setWrapText(true);
+            //Setting the alignment of the message label
+            sendMessageLabel.setTextAlignment(TextAlignment.JUSTIFY);
+            //creating a HBox to store the label
             HBox sendMessagehBox=new HBox();
             //Keeping the message label inside the HBox   
             sendMessagehBox.getChildren().add(sendMessageLabel);
@@ -176,16 +176,16 @@ public class Chatbox implements Initializable{
             //Sending the message to the content module
             IContentCommunicator communicator = ContentFactory.getContentCommunicator();
             communicator.sendMessageToContent(message);
-          //Logger to log the messages
-        	logger.log(ModuleID.UI, LogLevel.SUCCESS, "Message from user has been displayed on chatbox and sent to content module");
+            //Logger to log the messages
+            logger.log(ModuleID.UI, LogLevel.SUCCESS, "Message from user has been displayed on chatbox and sent to content module");
 
              
     	}
     	
     	else
     	{
-    		//Logger to log the messages
-        	logger.log(ModuleID.UI, LogLevel.INFO, "User did not enter any message");
+    	   //Logger to log the messages
+           logger.log(ModuleID.UI, LogLevel.INFO, "User did not enter any message");
     	}
     	
     }	
