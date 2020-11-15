@@ -125,6 +125,8 @@ public class CanvasController implements Initializable {
    	}
     /***
 	 * Function to get the send button of the chatbox 
+	 * @param : none
+	 * @return : sendButton - button clicked by user to send message
 	 ***/
 	public Button getSendButton() {
 		synchronized(this) {
@@ -133,24 +135,30 @@ public class CanvasController implements Initializable {
 	}
 	/***
 	 * Function to get the text area field of the chatbox
+	 * @param : none
+	 * @return : sendMessage - message entered by user in text box
 	 ***/
-	public TextArea getsendMessage() {
+	public TextArea getSendMessage() {
 		synchronized(this) {
 		return this.sendMessage;
 		}
 	}
 	/***
 	 * Function to get the chat display box of the chatbox 
+	 * @param : none
+	 * @return : chatDisplayBox - chat display box to display message
 	 ***/
-	public VBox getchatDisplayBox() {
+	public VBox getChatDisplayBox() {
 		synchronized(this) {
 		return this.chatDisplayBox;
 		}
 	}
 	/***
 	 * Function to get the scroll pane of the chatbox 
+	 * @param : none
+	 * @return : chatScroll - chat scroll pane to display message
 	 ***/
-	public ScrollPane getchatScroll() {
+	public ScrollPane getChatScroll() {
 		synchronized(this) {
 		return this.chatScroll;
 		}
